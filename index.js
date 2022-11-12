@@ -60,7 +60,7 @@ function updateCO3(completion) {
 	}
 	
 	fetchElectionData(options, (results) => {
-		if (CO3.diff === results.diff) {
+		if (CO3.diff === results.diff || CO3.leader === results.leader) {
 			completion(null)
 			return
 		} 
@@ -80,7 +80,7 @@ function updateNVS(completion) {
 	}
 	
 	fetchElectionData(options, (results) => {
-		if (NVS.diff === results.diff) {
+		if (NVS.diff === results.diff || NVS.leader === results.leader) {
 			completion(null)
 			return
 		} 
