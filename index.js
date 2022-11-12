@@ -15,7 +15,7 @@ let NVS = {
 }
 
 function formatDate(date) {
-	return date.toISOString().replace(/T/, ' ').replace(/\..+/, '')
+	return date.toLocaleString('en-US', { timeZone: 'America/Denver' })
 }
 
 function fetchElectionData(options, onComplete) {
@@ -26,8 +26,7 @@ function fetchElectionData(options, onComplete) {
 		  const races = body.races
 		  const data = races[0]
 		  const updated_at = new Date(data.updated_at)
-		  const reports = data.reporting_units
-		  const report = reports[0]
+		  const report = data.top_reporting_unit
 		  
 		  const candidates = report.candidates
 		  const first = candidates[0]
